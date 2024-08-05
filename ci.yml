@@ -1,0 +1,19 @@
+name: CI/CD pipeline
+
+on:
+  push:
+    branches:
+      -main
+jobs:
+  build:
+  runs-on:ubuntu-latest
+
+  steps:
+   -name:Checkout code
+   uses:actions/checkout@V2
+
+   -name:Set up Docker Buildx
+   uses:docker/setup-buildx-action@v1
+
+   _name:Build Docker image
+   run:docker build .-t myapp
